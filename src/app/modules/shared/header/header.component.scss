@@ -1,0 +1,48 @@
+.logo-title-container {
+  display: flex;
+  align-items: center;
+}
+
+.title-container {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.expense-title {
+  font-size: 2rem;
+  margin-top: 3rem;
+  font-family: 'Allstate Sans', sans-serif;
+}
+
+.expense-sub-title {
+  color: grey;
+  margin-top: 0.3rem;
+  font-family: 'Allstate Sans', sans-serif;
+}
+
+.expense-logo {
+  width: 120px;
+  height: 120px;
+}
+
+.add-transaction-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-transaction-container {
+  margin-left: auto;
+  margin-right: 10rem;
+  margin-top: 5rem;
+  padding-right: 10px;
+}

@@ -11,13 +11,13 @@
 .expense-title {
   font-size: 2rem;
   margin-top: 3rem;
-  font-family: 'Allstate Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .expense-sub-title {
   color: grey;
   margin-top: 0.3rem;
-  font-family: 'Allstate Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .expense-logo {
@@ -38,11 +38,12 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
 }
 
 .add-transaction-container {
   margin-left: auto;
-  margin-right: 10rem;
+  margin-right: 1rem;
   margin-top: 5rem;
   padding-right: 10px;
 }

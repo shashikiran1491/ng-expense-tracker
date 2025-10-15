@@ -1,0 +1,100 @@
+.recent-transactions-container{
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 10px;
+  min-height: 500px;
+  margin-right: 1rem;
+}
+
+.cards-container {
+  padding: 0.5rem;
+}
+
+.card {
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ccc; /* 👈 adds grey border */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* soft shadow */
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  justify-items: left;
+}
+
+.card-amount {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.txn-category {
+  margin-top: 0.1rem;
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.txn-date {
+  color: grey;
+  margin-top: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.txn-category.income {
+  width: 100px;
+  height: 10px;
+  background-color: #e6f4ea;
+  color: #1b7f3a;
+  border: 1px solid #1b7f3a;
+  border-radius: 6px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-justify: auto;
+  display: inline-block;
+}
+
+.txn-category.expense {
+  width: 100px;
+  height: 10px;
+  background-color: #fdeaea;
+  color: #c62828;
+  border: 1px solid #c62828;
+  border-radius: 6px;
+  padding-bottom: 10px;
+  text-align: center;
+  text-justify: auto;
+  display: inline-block;
+}
+
+.txn-amount.income {
+  width: 100px;
+  height: 10px;
+  color: #1b7f3a;
+  padding-bottom: 10px;
+  text-align: center;
+  text-justify: auto;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.txn-amount.expense {
+  width: 100px;
+  height: 10px;
+  color: #c62828;
+  padding-bottom: 10px;
+  text-align: center;
+  text-justify: auto;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 1rem;
+}

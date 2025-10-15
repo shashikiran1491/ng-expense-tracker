@@ -14,6 +14,7 @@ export class HeaderComponent {
 
   onAddTransaction() {
     this.dialog.open(AddTransactionComponent, {
+      disableClose: true,
       width: '500px',
       panelClass: 'custom-dialog-container'
     });

@@ -8,6 +8,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from "./modules/dashboard/dashboard.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatDialogModule,
     DashboardComponent,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

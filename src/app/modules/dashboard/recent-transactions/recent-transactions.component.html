@@ -1,0 +1,21 @@
+<div class = "recent-transactions-container">
+    <h3>Recent Transactions</h3>
+
+  <div class="cards-container" *ngFor="let txn of recentTransactions">
+    <div class="card">
+      <div>
+      <div class="card-title">{{txn.paidTo}}</div>
+      <div class="txn-date">{{txn.date}}</div>
+      </div>
+      <div class="txn-category" [ngClass]="txn.type === 'income' ? 'income' : 'expense'">
+        {{txn.category}}
+      </div>
+      <div class ="txn-amount" [ngClass]="txn.type === 'income' ? 'income' : 'expense'">
+        {{'Rs. '+txn.expense}}
+      </div>
+      <mat-icon (click)="onDelete(txn)">delete</mat-icon>
+    </div>
+  </div>
+</div>
+
+

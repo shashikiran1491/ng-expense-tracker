@@ -9,6 +9,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { Transaction } from "src/app/model/transaction";
+import { TransactionService } from "src/app/service/transaction-service";
+import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-add-transaction',
@@ -24,19 +28,49 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatButtonModule]
+    MatButtonModule,
+    MatSnackBarModule]
 })
 export class AddTransactionComponent {
+
   transactionForm = new TransactionForm();
 
-  constructor (private dialogRef: MatDialogRef<AddTransactionComponent>) {
+  constructor (private dialogRef: MatDialogRef<AddTransactionComponent>, 
+    private transactionService: TransactionService,
+    private snackBar: MatSnackBar,
+    private router: Router) {
   }
 
   saveTransaction() {
-    console.log("Saving Transaction", this.transactionForm.amount)
+   console.log("Eneterd saveTransaction") 
+   const transactionRequest = this.transactionForm.getRawValue();
+
+    const expenseRequest: Transaction = {
+      expenseType : transactionRequest.expenseType,
+      paidTo: transactionRequest.paidTo,
+      amount: transactionRequest.amount,
+      category: transactionRequest.category,
+      description: transactionRequest.description,
+      expenseDate: transactionRequest.expenseDate
+    }
+
+     this.transactionService.addTransaction(expenseRequest).subscribe({
+      next:(response) => {
+        if(response === null) {
+          this.snackBar.open('Transaction added successfully', '', {
+            duration: 6000
+          });
+        }
+      },
+      error:(err) => {
+        this.snackBar.open('Failed to add transaction. Please try again after sometime.', '', {
+          duration: 6000
+        }); 
+      }
+    });
+    this.dialogRef.close(true);
   }
 
-  protected readonly oncancel = oncancel;
 
   onCancel() {
     this.dialogRef.close();

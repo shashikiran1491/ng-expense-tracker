@@ -1,6 +1,17 @@
 .logo-title-container {
   display: flex;
   align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-links-container {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 40px;
 }
 
 .title-container {
@@ -8,9 +19,41 @@
   margin-left: 1rem;
 }
 
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  background-color: #f0f0f0; /* light grey hover background */
+}
+
+.nav-links a.active {
+  color: #1976d2; /* blue for active link */
+  font-weight: 600;
+}
+
+/* Optional: make logout stand out slightly */
+.logout {
+  color: #d32f2f;
+}
+.logout:hover {
+  background-color: #f8d7da; /* subtle red hover */
+}
+
 .expense-title {
-  font-size: 2rem;
-  margin-top: 3rem;
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -21,8 +64,8 @@
 }
 
 .expense-logo {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
 }
 
 .add-transaction-btn {

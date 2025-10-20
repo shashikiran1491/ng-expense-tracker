@@ -1,44 +1,35 @@
 <div class="finance-overview-container">
 
   <div class="finance-overview-header">
-   <div>
-    <div class="finance-overview-title">Financial Overview</div>
-    <div class="finance-overview-sub-title">Showing data for October 2025</div>
-   </div>
+    <div>
+      <div class="finance-overview-title">Financial Overview</div>
+      <div class="finance-overview-sub-title">Showing data for {{getMonthAndYear()}}</div>
+    </div>
 
     <div class="show-transaction-container">
+
       <button class="show-transaction-btn" (click)="showTransactions()">
         Show All Transactions
       </button>
 
+      <div class="month-year-container">
+        <mat-form-field appearance="fill">
+          <mat-select [(ngModel)]="selectedMonth">
+            <mat-option *ngFor="let m of months" [value]="m.value">
+              {{ m.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-select [(ngModel)]="selectedYear">
+            <mat-option *ngFor="let y of years" [value]="y">
+              {{ y }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
     </div>
   </div>
-
-
-  <div class="cards-container">
-    <div class="card">
-      <div class="card-title-container">
-        <div class="card-title">Total Income</div>
-        <mat-icon style="color: green">arrow_upward</mat-icon>
-      </div>
-      <div class="card-amount income-amount">$5,000.00</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title-container">
-        <div class="card-title">Total Expenses</div>
-        <mat-icon style="color: red">arrow_downward</mat-icon>
-      </div>
-      <div class="card-amount expense-amount">$3,200.00</div>
-    </div>
-
-    <div class="card">
-      <div class="card-title-container">
-        <div class="card-title">Net Balance</div>
-        <mat-icon>account_balance_wallet</mat-icon>
-      </div>
-      <div class="card-amount balance-amount">$1,800.00</div>
-    </div>
-
-  </div>
+  <app-finance-summary></app-finance-summary>
 </div>

@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 export class TransactionForm extends FormGroup {
 
   readonly expenseType = new FormControl<string>('Expense');
+  readonly paidTo = new FormControl<string>('Cash Expense');
   readonly amount = new FormControl<number>(0, [Validators.required, Validators.min(0.01), Validators.pattern(/^\d{1,7}(\.\d{1,2})?$/)])
   readonly category = new FormControl<string>('other',Validators.required);
   readonly description = new FormControl<string>('');
@@ -11,6 +12,7 @@ export class TransactionForm extends FormGroup {
   constructor() {
     super({});
     this.setControl('expenseType', this.expenseType);
+    this.setControl('paidTo', this.paidTo);
     this.setControl('amount', this.amount);
     this.setControl('category', this.category);
     this.setControl('description', this.description);

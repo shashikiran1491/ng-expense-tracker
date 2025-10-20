@@ -2,11 +2,16 @@
 
 <form [formGroup]="transactionForm">
   <mat-form-field appearance="fill" class="full-width">
-    <mat-label>Expense Type</mat-label>
+    <mat-label>Type</mat-label>
     <mat-select formControlName="expenseType">
       <mat-option value="Income">Income</mat-option>
       <mat-option value="Expense">Expense</mat-option>
     </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Paid to</mat-label>
+    <input type="string" matInput formControlName="paidTo" placeholder="Merchant name"/>
   </mat-form-field>
 
   <mat-form-field appearance="fill" class="full-width">

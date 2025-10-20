@@ -5,11 +5,15 @@
     <div class="expense-sub-title">Manage your income and expenses efficiently</div>
   </div>
 
-  <div class = "add-transaction-container">
-    <button class = "add-transaction-btn" (click)="onAddTransaction()">
-      <span class="plus-icon">+</span>
-       Add Transaction
-    </button>
+  <div class = "header-links-container">
+    <nav class="nav-links">
+      <a routerLink="/dashboard" routerLinkActive="active">Home</a>
+      <a routerLink="/expenses" routerLinkActive="active">Expenses</a>
+      <a routerLink="/settings" routerLinkActive="active">Settings</a>
+      <a class="logout" (click)="logout()">Logout</a>
+    </nav> 
+
   </div>
+
 
 </div>

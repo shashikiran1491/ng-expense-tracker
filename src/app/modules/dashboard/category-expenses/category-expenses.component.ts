@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Chart, registerables} from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import {CategoryExpense} from "src/app/model/category-expense";
+import { MatIconModule } from "@angular/material/icon";
+import { CommonModule } from "@angular/common";
 
 Chart.register(...registerables);
 Chart.register(ChartDataLabels);
@@ -10,7 +12,8 @@ Chart.register(ChartDataLabels);
   selector: 'app-category-expenses',
   templateUrl: './category-expenses.component.html',
   standalone: true,
-  styleUrls: ['./category-expenses.component.scss']
+  styleUrls: ['./category-expenses.component.scss'],
+  imports: [MatIconModule, CommonModule]
 })
 export class CategoryExpensesComponent implements OnInit {
   chartData: CategoryExpense[] = [];

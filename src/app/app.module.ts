@@ -10,6 +10,12 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from "@angular/common";
+import { LoginComponent } from './modules/login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiInterceptor } from './interceptors/api-interceptor';
+import { ShowTransactionsComponent } from './modules/show-transactions/show-transactions.component';
+import { HeaderComponent } from "./modules/shared/header/header.component";
+import { TransactionFilterComponent } from './modules/shared/transaction-filter/transaction-filter.component';
 
 @NgModule({
   declarations: [
@@ -24,9 +30,14 @@ import { CommonModule } from "@angular/common";
     MatDatepickerModule,
     MatNativeDateModule,
     MatIconModule,
-    CommonModule
+    CommonModule,
+    HttpClientModule,
+    LoginComponent,
+    HeaderComponent,
+],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true},
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

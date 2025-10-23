@@ -14,7 +14,7 @@
 
       <div class="month-year-container">
         <mat-form-field appearance="fill">
-          <mat-select [(ngModel)]="selectedMonth">
+          <mat-select [(ngModel)]="selectedMonth" (ngModelChange)="onMonthYearChange()">
             <mat-option *ngFor="let m of months" [value]="m.value">
               {{ m.name }}
             </mat-option>
@@ -22,7 +22,7 @@
         </mat-form-field>
 
         <mat-form-field appearance="fill">
-          <mat-select [(ngModel)]="selectedYear">
+          <mat-select [(ngModel)]="selectedYear" (ngModelChange)="onMonthYearChange()">
             <mat-option *ngFor="let y of years" [value]="y">
               {{ y }}
             </mat-option>

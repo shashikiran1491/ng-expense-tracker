@@ -5,6 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
+import { MonthYearService } from 'src/app/service/month-year-service';
 import { FinanceSummaryComponent } from "../../shared/finance-summary/finance-summary.component";
 
 @Component({
@@ -21,9 +22,12 @@ import { FinanceSummaryComponent } from "../../shared/finance-summary/finance-su
 })
 export class FinanceOverviewComponent {
 
-  constructor(private router: Router) {
-
+  constructor(private router: Router,
+    private monthYearService: MonthYearService) {
   }
+
+  selectedMonth = new Date().getMonth() + 1;
+  selectedYear = new Date().getFullYear();
 
   months = [
     { name: 'January', value: 0 },
@@ -42,8 +46,16 @@ export class FinanceOverviewComponent {
 
   years: number[] = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - 5 + i);
 
-  selectedMonth = new Date().getMonth();
-  selectedYear = new Date().getFullYear();
+
+  ngOnInit() {
+    const { month, year } = this.monthYearService.getCurrentMonthYear();
+    this.selectedMonth = month - 1;
+    this.selectedYear = year;
+  }
+
+  onMonthYearChange(): void {
+    this.monthYearService.setMonthYear(this.selectedMonth + 1, this.selectedYear);
+  }
 
   showTransactions() {
     const selectedMonth = this.selectedMonth;

@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 
@@ -9,14 +9,18 @@ import { Observable } from "rxjs";
 export class TransactionService {
 
     constructor(private httpClient: HttpClient) {
-       
     }
 
     addTransaction(expenseRequest: any) : Observable<any> {
-        console.log("reached here");
-        const res = this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/expenses', expenseRequest);
-        console.log("printing res", res);
-        return res;
-      }
+        return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/expenses', expenseRequest);
+    }
+
+    loadFinanceSummary(startDate: string, endDate: string) : Observable<any> {
+      const params = new HttpParams()
+      .set('startDate', startDate)
+      .set('endDate', endDate);
+
+      return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/transactions/summary', {params}); 
+    }
 
 }

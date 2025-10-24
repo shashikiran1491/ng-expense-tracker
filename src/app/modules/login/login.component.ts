@@ -4,7 +4,7 @@ import { LoginForm } from "src/app/forms/login-form";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from "@angular/common";
-import { HeaderComponent } from "../shared/header/header.component";
+import { HeaderComponent } from "../header/header.component";
 import { AuthService } from 'src/app/service/auth-service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';

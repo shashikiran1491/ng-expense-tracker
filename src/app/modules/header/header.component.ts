@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterModule } from '@angular/router';
-import { AddTransactionComponent } from "../../dashboard/add-transaction/add-transaction.component";
+import { AddTransactionComponent } from "../add-transaction/add-transaction.component";
 
 @Component({
   selector: 'app-header',

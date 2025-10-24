@@ -12,13 +12,13 @@
       <div class="card">
         <div>
           <div class="card-title">{{ txn.paidTo }}</div>
-          <div class="txn-date">{{ txn.date }}</div>
+          <div class="txn-date">{{ txn.expenseDate }}</div>
         </div>
-        <div class="txn-category" [ngClass]="txn.type === 'income' ? 'income' : 'expense'">
+        <div class="txn-category" [ngClass]="txn.expenseType === 'Income' ? 'income' : 'expense'">
           {{ txn.category }}
         </div>
-        <div class="txn-amount" [ngClass]="txn.type === 'income' ? 'income' : 'expense'">
-          {{ 'Rs. ' + txn.expense }}
+        <div class="txn-amount" [ngClass]="txn.expenseType === 'Income' ? 'income' : 'expense'">
+          {{ 'Rs. ' + txn.amount }}
         </div>
         <mat-icon (click)="onDelete(txn)">delete</mat-icon>
       </div>

@@ -9,7 +9,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Transaction } from "src/app/model/transaction";
+import { TransactionRequest } from "src/app/model/transaction-request";
 import { TransactionService } from "src/app/service/transaction-service";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
@@ -42,10 +42,9 @@ export class AddTransactionComponent {
   }
 
   saveTransaction() {
-   console.log("Eneterd saveTransaction") 
    const transactionRequest = this.transactionForm.getRawValue();
 
-    const expenseRequest: Transaction = {
+    const request: TransactionRequest = {
       expenseType : transactionRequest.expenseType,
       paidTo: transactionRequest.paidTo,
       amount: transactionRequest.amount,
@@ -54,7 +53,7 @@ export class AddTransactionComponent {
       expenseDate: transactionRequest.expenseDate
     }
 
-     this.transactionService.addTransaction(expenseRequest).subscribe({
+     this.transactionService.addTransaction(request).subscribe({
       next:(response) => {
         if(response === null) {
           this.snackBar.open('Transaction added successfully', '', {
@@ -70,7 +69,6 @@ export class AddTransactionComponent {
     });
     this.dialogRef.close(true);
   }
-
 
   onCancel() {
     this.dialogRef.close();

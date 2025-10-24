@@ -20,7 +20,6 @@ export class CategoryExpensesComponent implements OnInit {
 
   labels: string[] = [];
   expense: number[] = [];
-  color: string[] = [];
   percentage: number[] = [];
 
   ngOnInit(): void {
@@ -30,31 +29,29 @@ export class CategoryExpensesComponent implements OnInit {
   loadChartData() {
 
     this.chartData = [
-      {category: 'Food', expense: 20, percentage: 20, color: "#ADD8E6"},
-      {category: 'Transport', expense: 40, percentage: 40, color: "#90EE90"},
-      {category: 'Utilities', expense: 40, percentage: 40, color: "#FFDAB9"},
-      {category: 'Entertainment', expense: 20, percentage: 20, color: "#FFB6C1"}
+      {category: 'Food', expense: 60, percentage: 20},
+      {category: 'Transport', expense: 40, percentage: 40},
+      {category: 'Utilities', expense: 40, percentage: 40},
+      {category: 'Entertainment', expense: 20, percentage: 20}
     ];
 
     this.chartData.map(data => {
       this.labels.push(data.category);
       this.expense.push(data.expense);
       this.percentage.push(data.percentage);
-      this.color.push(data.color);
     })
 
-    this.renderChart(this.labels, this.expense, this.color, this.percentage);
+    this.renderChart(this.labels, this.expense, this.percentage);
   }
 
-  renderChart(labels: string[], expense: number[], color: string[], percentage: number[]) {
+  renderChart(labels: string[], expense: number[], percentage: number[]) {
     const chart = new Chart('pieChart', {
       type: 'pie',
       data: {
         labels: labels,
         datasets: [{
           data: expense,
-          backgroundColor: color
-        }]
+        }]  
       },
       options: {
         layout: {

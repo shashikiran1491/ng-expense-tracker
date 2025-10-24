@@ -6,7 +6,7 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatSelectModule } from '@angular/material/select';
 import { Router } from '@angular/router';
 import { MonthYearService } from 'src/app/service/month-year-service';
-import { FinanceSummaryComponent } from "../../shared/finance-summary/finance-summary.component";
+import { FinanceSummaryComponent } from "../finance-summary/finance-summary.component";
 
 @Component({
   selector: 'app-finance-overview',
@@ -49,17 +49,20 @@ export class FinanceOverviewComponent {
 
   ngOnInit() {
     const { month, year } = this.monthYearService.getCurrentMonthYear();
-    this.selectedMonth = month - 1;
+    console.log("Printing month and year in fo ", month +" : "+ year);
+    
+    this.selectedMonth = month;
     this.selectedYear = year;
-  }
+}
 
   onMonthYearChange(): void {
-    this.monthYearService.setMonthYear(this.selectedMonth + 1, this.selectedYear);
+    this.monthYearService.setMonthYear(this.selectedMonth, this.selectedYear);
   }
 
   showTransactions() {
     const selectedMonth = this.selectedMonth;
     const selectedYear = this.selectedYear; 
+
     this.router.navigate(['/show-transactions'], {
       queryParams: { month: selectedMonth, year: selectedYear }
     });

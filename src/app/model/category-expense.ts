@@ -1,5 +1,5 @@
 export interface CategoryExpense {
   category: string;
-  expense: number;
+  totalAmount: number;
   percentage: number;
 }

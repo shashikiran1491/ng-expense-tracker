@@ -33,4 +33,13 @@ export class TransactionService {
 
     return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/transactions/summary', { params });
   }
+
+  loadCategoryWiseSummary(startDate: string, endDate: string): Observable<any> {
+    const params = new HttpParams()
+      .set('startDate', startDate)
+      .set('endDate', endDate);
+
+      return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/transactions/summary/category', { params });
+  }
+
 }

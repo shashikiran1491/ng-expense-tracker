@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DateUtils } from 'src/app/utils/date-utils';
-import { TransactionResponse } from 'src/app/model/transaction-response';
 import { TransactionService } from 'src/app/service/transaction-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -90,7 +89,6 @@ export class ShowTransactionsComponent {
   }
 
   loadTransactions() {
-
     this.transactionservice.loadTransactions(this.startDate, this.endDate, this.pageIndex, this.pageSize).subscribe({
       next: (response) => {
         if (response) {
@@ -110,7 +108,6 @@ export class ShowTransactionsComponent {
           duration: 6000
         });
       }
-
     });
   }
 

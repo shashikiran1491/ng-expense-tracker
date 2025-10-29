@@ -28,8 +28,8 @@ export class FinanceSummaryComponent {
     this.sub = this.monthYearService.monthYear$.subscribe(({ month, year }) => {
       this.month = month;
       this.year = year;
-      console.log("Printing month and year ", this.month, "----", this.year);
-      const {startDate, endDate} = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { start, end } = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { startDate, endDate } = DateUtils.formatDateToString(start, end);
       this.loadFinanceSummary(startDate, endDate);
     });
 }

@@ -47,7 +47,8 @@ export class CategoryExpensesComponent implements OnInit {
     this.sub = this.monthYearService.monthYear$.subscribe(({ month, year }) => {
       this.month = month;
       this.year = year;
-      const { startDate, endDate } = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { start, end } = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { startDate, endDate } = DateUtils.formatDateToString(start, end);
       this.startDate = startDate;
       this.endDate = endDate;
       this.loadChartData();

@@ -30,6 +30,10 @@ export class ShowTransactionsComponent {
   year?: number;
   startDate!: string;
   endDate!: string;
+  category: string = 'All Categories';
+  type: string = 'All Types';
+
+  defaultDateRange: { start: Date; end: Date } | null = null;
 
   constructor(private route: ActivatedRoute,
     private transactionservice: TransactionService,
@@ -53,7 +57,10 @@ export class ShowTransactionsComponent {
         this.year = currentDate.getFullYear();
       }
 
-      const { startDate, endDate } = DateUtils.getMonthDateRange(this.month, this.year);
+      const { start, end } = DateUtils.getMonthDateRange(this.month, this.year);
+      this.defaultDateRange = {start, end};
+
+      const {startDate, endDate} = DateUtils.formatDateToString(start, end);
       this.startDate = startDate;
       this.endDate = endDate;
       this.loadTransactions();
@@ -61,7 +68,7 @@ export class ShowTransactionsComponent {
   }
 
   pageIndex = 0;
-  pageSize = 5;
+  pageSize = 20;
   totalItems = 0;
   
   startIndex = 0;
@@ -77,8 +84,6 @@ export class ShowTransactionsComponent {
   onPageChange(event: PageEvent) {
     this.pageSize = event.pageSize;
     this.pageIndex = event.pageIndex;
-
-    console.log("Printing pageSize and pageIndex", this.pageSize, "------", this.pageIndex)
     this.updateRange();
     this.loadTransactions()
   }
@@ -89,18 +94,12 @@ export class ShowTransactionsComponent {
   }
 
   loadTransactions() {
-    this.transactionservice.loadTransactions(this.startDate, this.endDate, this.pageIndex, this.pageSize).subscribe({
+    this.transactionservice.loadTransactions(this.startDate, this.endDate, this.category, this.type, this.pageIndex, this.pageSize).subscribe({
       next: (response) => {
         if (response) {
           const formattedExpenses = this.formatExpenseDate(response);
           this.dataSource.data = formattedExpenses;
           this.totalItems = response.totalElements;
-
-          //this.cdr.detectChanges();
-
-          console.log("total elemnst", this.totalItems, "----", response.totalElements)
-          console.log("Printing datasource data", this.dataSource.data);
-          console.log("Printing page size and total Items", this.pageSize , "---",this.pageIndex, "------", this.totalItems)
         }
       },
       error: (err) => {
@@ -109,6 +108,15 @@ export class ShowTransactionsComponent {
         });
       }
     });
+  }
+
+  onFiltersChanged(values: any) {
+    const {startDate, endDate} = DateUtils.formatDateToString(values.startDate, values.endDate);
+    this.startDate = startDate;
+    this.endDate = endDate;
+    this.category = values.category;
+    this.type = values.type;
+    this.loadTransactions();
   }
 
   private formatExpenseDate(response: any) {

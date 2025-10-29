@@ -1,48 +1,45 @@
+<div class="filters-container">
+  <span class="title">Filters</span>
 
-<div class = "filters-container">
-    <span class="title">Filters</span> 
 
-    <div class="filter-field-container">
+    <form [formGroup]="transactionFilterForm" class="filter-field-container">
     <mat-form-field appearance="outline">
-        <mat-label>Date Range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate placeholder="Start date">
-          <input matEndDate placeholder="End date">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
+      <mat-label>Date Range</mat-label>
+      <mat-date-range-input [formGroup]="transactionFilterForm" [rangePicker]="picker">
+        <input matStartDate formControlName="startDate" placeholder="Start date">
+        <input matEndDate formControlName="endDate" placeholder="End date">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
 
 
-      <mat-form-field appearance="fill">
-        <mat-label>Category</mat-label>
-        <mat-select formControlName="category" placeholder="Select category">
-          <mat-option value="All Categories">All Categories</mat-option>
-          <mat-option value="food">Food</mat-option>
-          <mat-option value="transport">Transport</mat-option>
-          <mat-option value="shopping">Shopping</mat-option>
-          <mat-option value="bills">Bills</mat-option>
-          <mat-option value="other">Other</mat-option>
-        </mat-select>
-        <mat-error>
-          Category is required
-        </mat-error>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="category" placeholder="Select category">
+        <mat-option value="All Categories">All Categories</mat-option>
+        <mat-option value="Food">Food</mat-option>
+        <mat-option value="Transport">Transport</mat-option>
+        <mat-option value="Shopping">Shopping</mat-option>
+        <mat-option value="Bills">Bills</mat-option>
+        <mat-option value="Other">Other</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Type</mat-label>
-        <mat-select formControlName="expenseType">
-          <mat-option value="All types">All Types</mat-option>
-          <mat-option value="Income">Income</mat-option>
-          <mat-option value="Expense">Expense</mat-option>
-        </mat-select>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Type</mat-label>
+      <mat-select formControlName="type" placeholder="Select Type">
+        <mat-option value="All Types">All Types</mat-option>
+        <mat-option value="Income">Income</mat-option>
+        <mat-option value="Expense">Expense</mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <button class = "add-transaction-btn" (click)="onAddTransaction()">
-        <span class="plus-icon">+</span>
-         Add Transaction
-      </button>
+    <button class="add-transaction-btn" (click)="onAddTransaction()">
+      <span class="plus-icon">+</span>
+      Add Transaction
+    </button>
 
-    </div>
+</form>
 
 </div>

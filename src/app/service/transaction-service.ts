@@ -15,11 +15,13 @@ export class TransactionService {
     return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/expenses', transactionRequest);
   }
 
-  loadTransactions(startDate: string, endDate: string, pageIndex: number, pageSize: number): Observable<any> {
+  loadTransactions(startDate: string, endDate: string, category: string, type: string, pageIndex: number, pageSize: number): Observable<any> {
 
     const params = new HttpParams()
       .set('startDate', startDate)
       .set('endDate', endDate)
+      .set('category', category)
+      .set('type', type)
       .set('page', pageIndex)
       .set('pageSize', pageSize);
 

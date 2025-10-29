@@ -21,4 +21,8 @@ export class MonthYearService {
         return this.monthYearSource.getValue();
     }
 
+    resetToCurrentMonthYear() {
+        const today = new Date();
+        this.monthYearSource.next({ month: today.getMonth(), year: today.getFullYear() });
+    }
 }

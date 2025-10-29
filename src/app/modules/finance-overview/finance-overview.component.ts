@@ -48,9 +48,7 @@ export class FinanceOverviewComponent {
 
 
   ngOnInit() {
-    const { month, year } = this.monthYearService.getCurrentMonthYear();
-    console.log("Printing month and year in fo ", month +" : "+ year);
-    
+    const { month, year } = this.monthYearService.getCurrentMonthYear();  
     this.selectedMonth = month;
     this.selectedYear = year;
 }

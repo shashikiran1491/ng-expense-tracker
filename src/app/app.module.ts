@@ -16,6 +16,7 @@ import { ApiInterceptor } from './interceptors/api-interceptor';
 import { HeaderComponent } from "./modules/header/header.component";
 import { ErrorHandlerInterceptor } from './interceptors/error-handler-interceptor';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     HttpClientModule,
     LoginComponent,
     HeaderComponent,
-    MatPaginatorModule
+    MatPaginatorModule,
 ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true},

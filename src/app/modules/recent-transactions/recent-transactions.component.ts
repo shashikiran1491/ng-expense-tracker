@@ -23,7 +23,7 @@ export class RecentTransactionsComponent {
   constructor(private dialog: MatDialog,
     private transactionService: TransactionService,
     private monthYearService: MonthYearService,
-    private snackBar: MatSnackBar){
+    private snackBar: MatSnackBar) {
   }
 
   month!: number;
@@ -31,34 +31,42 @@ export class RecentTransactionsComponent {
   startDate!: string;
   endDate!: string;
   private sub!: Subscription;
-  recentTransactions : TransactionResponse[] = [];
+  recentTransactions: TransactionResponse[] = [];
 
   ngOnInit(): void {
     this.sub = this.monthYearService.monthYear$.subscribe(({ month, year }) => {
       this.month = month;
       this.year = year;
-      const {startDate, endDate} = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { start, end } = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { startDate, endDate } = DateUtils.formatDateToString(start, end);
       this.startDate = startDate;
       this.endDate = endDate;
       this.loadRecentTransactions();
     });
-}
+  }
 
   onAddTransaction() {
-    this.dialog.open(AddTransactionComponent, {
+    const dialogRef = this.dialog.open(AddTransactionComponent, {
       disableClose: true,
       width: '500px',
       panelClass: 'custom-dialog-container'
     });
-  }
 
-  onDelete(txn : any) {
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('The dialog was closed with result:', result);
+      if (result) {
+        this.loadRecentTransactions();
+      }
+    });
+}
+
+  onDelete(txn: any) {
     console.log("deleting trnsaction", txn);
   }
 
   loadRecentTransactions() {
 
-    this.transactionService.loadTransactions(this.startDate, this.endDate, 0, 5).subscribe({
+    this.transactionService.loadTransactions(this.startDate, this.endDate, "All Categories", "All Types", 0, 5).subscribe({
       next: (response) => {
         if (response) {
           const formattedExpenses = this.formatExpenseDate(response);
@@ -72,13 +80,12 @@ export class RecentTransactionsComponent {
       }
 
     });
-}
+  }
 
-private formatExpenseDate(response: any) {
-  return response.expenses.map((expense: any) => ({
-    ...expense,
-    expenseDate: expense.expenseDate ? expense.expenseDate.split('T')[0] : ''
-  }));
-}
-
+  private formatExpenseDate(response: any) {
+    return response.expenses.map((expense: any) => ({
+      ...expense,
+      expenseDate: expense.expenseDate ? expense.expenseDate.split('T')[0] : ''
+    }));
+  }
 }

@@ -9,6 +9,13 @@ export class DateUtils {
             : new Date(year, month, 0);
 
 
+        return {
+            start: start,
+            end: end
+        }
+    }
+
+     static formatDateToString(start: Date, end: Date) {
         const format = (d: Date) => d.toLocaleDateString('en-CA');
         return {
             startDate: format(start),

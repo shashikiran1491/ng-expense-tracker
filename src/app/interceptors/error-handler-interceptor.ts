@@ -2,13 +2,14 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { catchError, Observable, throwError } from "rxjs";
+import { MonthYearService } from "../service/month-year-service";
 
 @Injectable()
 export class ErrorHandlerInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router) {
+    constructor(private router: Router,
+        private monthYearService: MonthYearService) {
     }
-
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -21,7 +22,7 @@ export class ErrorHandlerInterceptor implements HttpInterceptor {
                 }
                 return throwError(() => error);
             })
-        );
+        );  
     }
 }
 

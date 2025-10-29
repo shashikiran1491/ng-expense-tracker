@@ -17,11 +17,11 @@
   <mat-form-field appearance="fill" class="full-width">
     <mat-label>Category</mat-label>
     <mat-select formControlName="category" placeholder="Select category">
-      <mat-option value="food">Food</mat-option>
-      <mat-option value="transport">Transport</mat-option>
-      <mat-option value="shopping">Shopping</mat-option>
-      <mat-option value="bills">Bills</mat-option>
-      <mat-option value="other">Other</mat-option>
+      <mat-option value="Food">Food</mat-option>
+      <mat-option value="Transport">Transport</mat-option>
+      <mat-option value="Shopping">Shopping</mat-option>
+      <mat-option value="Bills">Bills</mat-option>
+      <mat-option value="Other">Other</mat-option>
     </mat-select>
     <mat-error>
       Category is required
@@ -67,7 +67,7 @@
     </button>
     <button mat-raised-button
             color="primary"
-            type="submit"
+            type="button"
             (click)="saveTransaction()"
             [disabled]="!transactionForm.valid">
       Save

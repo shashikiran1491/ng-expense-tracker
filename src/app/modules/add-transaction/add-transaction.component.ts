@@ -1,7 +1,7 @@
 import { CommonModule } from "@angular/common";
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import {MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { TransactionForm } from "src/app/forms/transaction-form";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -35,17 +35,17 @@ export class AddTransactionComponent {
 
   transactionForm = new TransactionForm();
 
-  constructor (private dialogRef: MatDialogRef<AddTransactionComponent>, 
+  constructor(private dialogRef: MatDialogRef<AddTransactionComponent>,
     private transactionService: TransactionService,
     private snackBar: MatSnackBar,
     private router: Router) {
   }
 
   saveTransaction() {
-   const transactionRequest = this.transactionForm.getRawValue();
+    const transactionRequest = this.transactionForm.getRawValue();
 
     const request: TransactionRequest = {
-      expenseType : transactionRequest.expenseType,
+      expenseType: transactionRequest.expenseType,
       paidTo: transactionRequest.paidTo,
       amount: transactionRequest.amount,
       category: transactionRequest.category,
@@ -53,21 +53,22 @@ export class AddTransactionComponent {
       expenseDate: transactionRequest.expenseDate
     }
 
-     this.transactionService.addTransaction(request).subscribe({
-      next:(response) => {
-        if(response === null) {
+    this.transactionService.addTransaction(request).subscribe({
+      next: (response) => {
+        if (response === null) {
           this.snackBar.open('Transaction added successfully', '', {
             duration: 6000
           });
         }
+        this.dialogRef.close(true);
       },
-      error:(err) => {
+      error: (err) => {
         this.snackBar.open('Failed to add transaction. Please try again after sometime.', '', {
           duration: 6000
-        }); 
+        });
       }
     });
-    this.dialogRef.close(true);
+
   }
 
   onCancel() {

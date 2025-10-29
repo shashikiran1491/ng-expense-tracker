@@ -38,7 +38,7 @@ export class ShowTransactionsComponent {
   constructor(private route: ActivatedRoute,
     private transactionservice: TransactionService,
     private snackBar: MatSnackBar,
-    private cdr: ChangeDetectorRef) { }
+    private router: Router) { }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
@@ -47,6 +47,11 @@ export class ShowTransactionsComponent {
   }  
 
   ngOnInit() {
+    const currentRoute = this.router.url;
+    if (currentRoute.includes('expenses')) {
+      this.type = 'Expense';
+    }
+
     this.route.queryParams.subscribe(params => {
       this.month = +params['month'] + 1;
       this.year = Number(params['year']);

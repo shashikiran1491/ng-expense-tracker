@@ -26,6 +26,7 @@ import { debounceTime } from 'rxjs';
 })
 export class TransactionFilterComponent {
   @Input() defaultDateRange: { start: Date; end: Date } | null = null;
+   @Input() defaultType: string | null = null;
   @Output() transactionAdded = new EventEmitter<void>();
 
   @Output() filtersChanged = new EventEmitter<{
@@ -54,7 +55,13 @@ export class TransactionFilterComponent {
         endDate: new Date(end)
       }, { emitEvent: false });
     }
-  }
+
+    if(changes['defaultType'] && this.defaultType) {
+      this.transactionFilterForm.patchValue({
+        type: this.defaultType
+      }, { emitEvent: false });
+    }
+}
 
   onAddTransaction() {
     const dialogRef = this.dialog.open(AddTransactionComponent, {

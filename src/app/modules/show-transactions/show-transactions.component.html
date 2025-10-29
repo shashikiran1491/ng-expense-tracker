@@ -12,8 +12,10 @@
 <app-finance-summary></app-finance-summary>
 
 <app-transaction-filter [defaultDateRange]="defaultDateRange" 
+[defaultType]="type"
 (transactionAdded)="loadTransactions()"
-(filtersChanged)="onFiltersChanged($event)"></app-transaction-filter>
+(filtersChanged)="onFiltersChanged($event)"
+></app-transaction-filter>
 
 <div class = "table-container">
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z2 custom-table">

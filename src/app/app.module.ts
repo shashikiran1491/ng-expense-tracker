@@ -8,6 +8,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from "./modules/dashboard/dashboard.component";
 import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatIconModule } from '@angular/material/icon';
+import { CommonModule } from "@angular/common";
+import { LoginComponent } from './modules/login/login.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ApiInterceptor } from './interceptors/api-interceptor';
+import { HeaderComponent } from "./modules/header/header.component";
+import { ErrorHandlerInterceptor } from './interceptors/error-handler-interceptor';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,9 +29,18 @@ import { MatNativeDateModule } from "@angular/material/core";
     MatDialogModule,
     DashboardComponent,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatIconModule,
+    CommonModule,
+    HttpClientModule,
+    LoginComponent,
+    HeaderComponent,
+    MatPaginatorModule,
+],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorHandlerInterceptor, multi: true}
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

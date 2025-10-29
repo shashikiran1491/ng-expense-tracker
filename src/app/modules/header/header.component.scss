@@ -1,0 +1,92 @@
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.header-links-container {
+  margin-left: auto;
+  margin-right: 20px;
+  margin-top: 40px;
+}
+
+.title-container {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  background-color: #f0f0f0; /* light grey hover background */
+}
+
+.nav-links a.active {
+  color: #1976d2; /* blue for active link */
+  font-weight: 600;
+}
+
+/* Optional: make logout stand out slightly */
+.logout {
+  color: #d32f2f;
+}
+.logout:hover {
+  background-color: #f8d7da; /* subtle red hover */
+}
+
+.expense-title {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.expense-sub-title {
+  color: grey;
+  margin-top: 0.3rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.expense-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.add-transaction-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.add-transaction-container {
+  margin-left: auto;
+  margin-right: 1rem;
+  margin-top: 5rem;
+  padding-right: 10px;
+}

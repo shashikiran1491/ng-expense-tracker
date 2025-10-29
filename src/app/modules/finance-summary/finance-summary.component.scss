@@ -1,0 +1,48 @@
+.cards-container {
+    display: flex;
+    padding: 1rem;
+    gap: 20px
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc; /* 👈 adds grey border */
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* soft shadow */
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card-title-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 6px;
+    justify-items: left;
+  }
+  
+  .card-amount {
+    margin-top: 2rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  
+  .income-amount {
+    color: #2e7d32; /* green */
+  }
+  
+  .expense-amount {
+    color: #c62828; /* red */
+  }
+  
+  .balance-amount {
+    color: #2e7d32;/* blue */
+  }

@@ -1,0 +1,38 @@
+<div class="recent-transactions-container">
+  <div class = "recent-transactions-header-container">
+  <span class="recent-transactions-title">Recent Transactions</span>
+    <button class = "add-transaction-btn" (click)="onAddTransaction()">
+      <span class="plus-icon">+</span>
+       Add Transaction
+    </button>
+</div>
+
+  <ng-container *ngIf="recentTransactions && recentTransactions.length > 0; else noTxns">
+    <div class="cards-container" *ngFor="let txn of recentTransactions">
+      <div class="card">
+        <div>
+          <div class="card-title">{{ txn.paidTo }}</div>
+          <div class="txn-date">{{ txn.expenseDate }}</div>
+        </div>
+        <div class="txn-category" [ngClass]="txn.expenseType === 'Income' ? 'income' : 'expense'">
+          {{ txn.category }}
+        </div>
+        <div class="txn-amount" [ngClass]="txn.expenseType === 'Income' ? 'income' : 'expense'">
+          {{ 'Rs. ' + txn.amount }}
+        </div>
+        <mat-icon (click)="onDelete(txn)">delete</mat-icon>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noTxns>
+    <div class="no-transactions">
+      <mat-icon>receipt_long</mat-icon>
+      <p>No transactions found</p>
+    </div>
+  </ng-template>
+
+</div>
+
+
+

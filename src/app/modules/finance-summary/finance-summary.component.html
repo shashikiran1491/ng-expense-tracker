@@ -1,0 +1,26 @@
+<div class="cards-container">
+    <div class="card">
+      <div class="card-title-container">
+        <div class="card-title">Total Income</div>
+        <mat-icon style="color: green">arrow_upward</mat-icon>
+      </div>
+      <div class="card-amount income-amount">Rs. {{ financeSummary?.totalIncome }}</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title-container">
+        <div class="card-title">Total Expenses</div>
+        <mat-icon style="color: red">arrow_downward</mat-icon>
+      </div>
+      <div class="card-amount expense-amount">Rs. {{ financeSummary?.totalExpense }}</div>
+    </div>
+
+    <div class="card">
+      <div class="card-title-container">
+        <div class="card-title">Net Balance</div>
+        <mat-icon>account_balance_wallet</mat-icon>
+      </div>
+      <div class="card-amount balance-amount">Rs. {{ financeSummary?.netBalance }}</div>
+    </div>
+
+  </div>

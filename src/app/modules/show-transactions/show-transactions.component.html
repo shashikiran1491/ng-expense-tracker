@@ -1,0 +1,68 @@
+<app-header></app-header>
+
+<div class = "header-container">
+<div class="title-container">
+    <div class="title">All Transactions</div>
+    <div class="sub-title">Showing {{ startIndex + 1 }} – {{ endIndex }} of {{ totalItems }}  transactions</div>
+</div>
+
+<div class="transaction-dates">Date Range: {{startDate}} to {{endDate}} </div>
+</div>
+
+<app-finance-summary></app-finance-summary>
+
+<app-transaction-filter [defaultDateRange]="defaultDateRange" 
+[defaultType]="type"
+(transactionAdded)="loadTransactions()"
+(filtersChanged)="onFiltersChanged($event)"
+></app-transaction-filter>
+
+<div class = "table-container">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z2 custom-table">
+    <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>Date</th>
+        <td mat-cell *matCellDef="let tx">{{tx.expenseDate}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="merchant">
+        <th mat-header-cell *matHeaderCellDef>Merchant</th>
+        <td mat-cell *matCellDef="let tx">{{tx.paidTo}}</td>
+      </ng-container>
+
+     <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef>Category</th>
+        <td mat-cell *matCellDef="let tx"
+        class="txn-category" [ngClass]="tx.expenseType === 'Income' ? 'income' : 'expense'">
+          {{tx.category}}
+        </td>
+      </ng-container>
+    
+     <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef>Type</th>
+        <td mat-cell *matCellDef="let tx">{{tx.expenseType}}</td>
+      </ng-container>
+    
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef> Amount </th>
+        <td mat-cell *matCellDef="let tx"
+            [ngClass]="tx.expenseType === 'Income' ? 'income' : 'expense'">
+          Rs. {{ tx.amount }}
+        </td>
+      </ng-container>
+     
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let tx">
+         <mat-icon (click)="onDelete(tx)">delete</mat-icon>
+        </td>
+      </ng-container> 
+
+
+  <tr mat-header-row class="header-row" *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="totalItems" showFirstLastButtons (page)="onPageChange($event)"></mat-paginator>
+
+</div>

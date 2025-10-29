@@ -1,0 +1,10 @@
+<div class="category-expenses-container">
+  <div class = "category-expense-title">Expense by Category</div>
+
+  <div *ngIf="noData" class="no-transactions">
+    <mat-icon>receipt_long</mat-icon>
+    <p>No transactions found</p>
+  </div>
+
+  <canvas #pieChartCanvas  *ngIf="!noData"></canvas>
+</div>

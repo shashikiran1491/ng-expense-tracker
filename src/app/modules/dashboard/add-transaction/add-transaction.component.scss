@@ -1,0 +1,42 @@
+/* Force white background inside all filled material inputs */
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: #ffffff !important;
+}
+
+/* Optional: soft rounded look */
+.mdc-text-field--filled .mat-mdc-text-field-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Input text and label colors */
+.mat-mdc-form-field .mdc-floating-label,
+.mat-mdc-form-field input {
+  color: #222 !important;
+}
+
+/* Underline (focus indicator) colors */
+.mat-mdc-form-field .mdc-line-ripple::before {
+  border-bottom-color: #ddd !important;
+}
+
+.mat-mdc-form-field .mdc-line-ripple::after {
+  border-bottom-color: #7b1fa2 !important; /* Purple accent */
+}
+
+/* Dialog background white */
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: #ffffff !important;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.button-spacing {
+  margin-right: 16px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}

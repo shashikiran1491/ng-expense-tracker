@@ -1,0 +1,72 @@
+<h2>Add New Transaction</h2>
+
+<form [formGroup]="transactionForm">
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Expense Type</mat-label>
+    <mat-select formControlName="expenseType">
+      <mat-option value="Income">Income</mat-option>
+      <mat-option value="Expense">Expense</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category" placeholder="Select category">
+      <mat-option value="food">Food</mat-option>
+      <mat-option value="transport">Transport</mat-option>
+      <mat-option value="shopping">Shopping</mat-option>
+      <mat-option value="bills">Bills</mat-option>
+      <mat-option value="other">Other</mat-option>
+    </mat-select>
+    <mat-error>
+      Category is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Amount</mat-label>
+    <input type="number" matInput formControlName="amount" placeholder="Enter amount"/>
+    <mat-error *ngIf="transactionForm.get('amount')?.hasError('required')">
+      Amount is required
+    </mat-error>
+    <mat-error *ngIf="transactionForm.get('amount')?.hasError('pattern')">
+      Invalid amount (max 7 digits, up to 2 decimals)
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Expense Date</mat-label>
+    <input matInput
+           [matDatepicker]="picker"
+           formControlName="expenseDate"/>
+
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>
+      Expense Date is required
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" maxlength="500" placeholder="Tell me about the expense"></textarea>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-stroked-button
+            color="warn"
+            type="button"
+            class="button-spacing"
+            (click)="onCancel()">
+      Cancel
+    </button>
+    <button mat-raised-button
+            color="primary"
+            type="submit"
+            (click)="saveTransaction()"
+            [disabled]="!transactionForm.valid">
+      Save
+    </button>
+  </div>
+</form>
+

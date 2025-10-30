@@ -6,6 +6,7 @@ import { ShowTransactionsComponent } from './modules/show-transactions/show-tran
 import { authGuard } from './service/security/auth.guard';
 
 const routes: Routes = [
+ { path: '', redirectTo: '/login', pathMatch: 'full' },
  {path: 'login', component: LoginComponent},
  {path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]},
  {path: 'show-transactions', component: ShowTransactionsComponent, canActivate: [authGuard]},

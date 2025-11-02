@@ -14,5 +14,5 @@ export class TransactionFilterForm extends FormGroup {
         this.setControl('endDate', this.endDate);
         this.setControl('category', this.category);
         this.setControl('type', this.type);
-}
+    }
 }

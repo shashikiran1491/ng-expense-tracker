@@ -16,6 +16,10 @@ export class AuthService {
       return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/login', loginRequest);
     }
 
+    register(registerRequest: any) : Observable<any> {
+      return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/register', registerRequest);
+    }
+
     getToken(): string | null {
       return sessionStorage.getItem('token');
     }

@@ -17,6 +17,7 @@ import { HeaderComponent } from "./modules/header/header.component";
 import { ErrorHandlerInterceptor } from './interceptors/error-handler-interceptor';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './modules/register/register.component';
 
 @NgModule({
   declarations: [

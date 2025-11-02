@@ -18,8 +18,15 @@
       <input type="password" matInput formControlName="password" placeholder="Password"/>
     </mat-form-field>
 
-    <button type="submit" [disabled]="!loginForm.valid">Sign In</button>
+    <button type="submit" class="full-width sign-in-btn" [disabled]="!loginForm.valid">Sign In</button>
   </form>
+
+     <div class="divider">or</div>
+
+    <button mat-stroked-button color="accent" class="full-width google-btn" (click)="loginWithGoogle()">
+        <img src="assets/images/google-icon.svg" alt="Google" class="google-icon" />
+        Sign up with Google
+    </button>
 
   <p class="signup-text">
     Don't have an account?

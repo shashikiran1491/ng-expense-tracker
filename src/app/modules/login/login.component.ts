@@ -7,9 +7,9 @@ import { CommonModule } from "@angular/common";
 import { HeaderComponent } from "../header/header.component";
 import { AuthService } from 'src/app/service/auth-service';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
-import { HttpStatusCode } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { RegisterComponent } from '../register/register.component';
 
 @Component({
   selector: 'app-login',
@@ -21,10 +21,12 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
             MatFormFieldModule,
             MatInputModule,
             CommonModule,
-            MatSnackBarModule
+            MatSnackBarModule,
+            RouterModule
        ]
 })
 export class LoginComponent {
+
   loginForm = new LoginForm();
 
   constructor(private authService : AuthService,
@@ -52,5 +54,9 @@ export class LoginComponent {
             }); 
         },
       });
+  }
+
+  loginWithGoogle() {
+    throw new Error('Method not implemented.');
   }
 }

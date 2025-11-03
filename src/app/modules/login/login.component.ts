@@ -4,12 +4,10 @@ import { LoginForm } from "src/app/forms/login-form";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule } from "@angular/common";
-import { HeaderComponent } from "../header/header.component";
 import { AuthService } from 'src/app/service/auth-service';
-import { Observable } from 'rxjs';
 import { Router, RouterModule } from '@angular/router';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { RegisterComponent } from '../register/register.component';
+import { SocialAuthService, SocialLoginModule } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-login',
@@ -22,17 +20,27 @@ import { RegisterComponent } from '../register/register.component';
             MatInputModule,
             CommonModule,
             MatSnackBarModule,
-            RouterModule
+            RouterModule,
+            SocialLoginModule
        ]
 })
 export class LoginComponent {
-
   loginForm = new LoginForm();
 
   constructor(private authService : AuthService,
-    private router: Router,
-    private snackBar: MatSnackBar) {
+  private router: Router,
+  private snackBar: MatSnackBar,
+  private socialAuthService: SocialAuthService) {
   }
+
+   ngOnInit() {
+    this.socialAuthService.authState.subscribe((user) => {
+      if (user) {
+        console.log('Google login success:', user);
+        this.router.navigate(['/dashboard']);
+      }
+    });
+   }
 
   onLogin() {
 
@@ -55,8 +63,4 @@ export class LoginComponent {
         },
       });
   }
-
-  loginWithGoogle() {
-    throw new Error('Method not implemented.');
-  }
-}
+} 

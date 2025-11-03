@@ -97,27 +97,12 @@ button[disabled] {
   color: #888;
 }
 
-.full-width {
-  width: 100%;
-}
-
 .google-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 10px;
   cursor: pointer;
-  font-size: 15px;
+  color: #007bff;
   border: none;
-  border-radius: 6px;
-}
-
-.google-btn:hover {
-  background-color: darkgrey;
-}
-
-.google-icon {
-  width: 20px;
-  height: 20px;
-}
+} 

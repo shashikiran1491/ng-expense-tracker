@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router, RouterModule } from '@angular/router';
 import { MonthYearService } from 'src/app/service/month-year-service';
-import {MatMenuModule } from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+import { SocialAuthService } from '@abacritt/angularx-social-login';
 
 @Component({
   selector: 'app-header',
@@ -24,13 +25,16 @@ export class HeaderComponent {
   token: string = 'token';
 
   constructor(private dialog: MatDialog, private router: Router,
-    private monthYearService: MonthYearService
+    private monthYearService: MonthYearService,
+    private authService: SocialAuthService
   ) { }
 
   logout() {
-    sessionStorage.removeItem(this.token);
-    this.monthYearService.resetToCurrentMonthYear();
-    this.router.navigate(['/login']);
+    this.authService.signOut().finally(() => {
+      sessionStorage.removeItem('token');
+      this.monthYearService.resetToCurrentMonthYear();
+      this.router.navigate(['/login'], { replaceUrl: true });
+    });
   }
 
   onProfile() {

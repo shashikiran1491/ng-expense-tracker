@@ -1,10 +1,13 @@
 import { Injectable } from "@angular/core";
 import { BehaviorSubject } from "rxjs";
+import { AuthService } from "./auth-service";
 
 @Injectable({
     providedIn: 'root'
 })
 export class MonthYearService {
+
+    constructor(private authService: AuthService) { }
 
     private monthYearSource = new BehaviorSubject<{ month: number; year: number }>({
         month: new Date().getMonth(),

@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { Subscription } from 'rxjs';
 import { FinanceSummary } from 'src/app/model/finance-summary';
 import { MonthYearService } from 'src/app/service/month-year-service';
+import { TransactionEventService } from 'src/app/service/transaction-event-service';
 import { TransactionService } from 'src/app/service/transaction-service';
 import { DateUtils } from 'src/app/utils/date-utils';
 
@@ -21,7 +22,8 @@ export class FinanceSummaryComponent {
   private sub!: Subscription;
 
   constructor(private transactionService: TransactionService,
-    private monthYearService: MonthYearService) {
+    private monthYearService: MonthYearService,
+  private transactionEvents: TransactionEventService) {
 }
 
   ngOnInit(): void {
@@ -32,8 +34,13 @@ export class FinanceSummaryComponent {
       const { startDate, endDate } = DateUtils.formatDateToString(start, end);
       this.loadFinanceSummary(startDate, endDate);
     });
-}
 
+    this.transactionEvents.transactionAdded$.subscribe(() => {
+      const { start, end } = DateUtils.getMonthDateRange(this.month + 1, this.year);
+      const { startDate, endDate } = DateUtils.formatDateToString(start, end);
+      this.loadFinanceSummary(startDate, endDate);
+  });
+}
 
   ngOnDestroy() {
     this.sub.unsubscribe(); // important to prevent stacked subscriptions

@@ -1,0 +1,88 @@
+<div class="register-container">
+
+    <h2 class="title">Create your account</h2>
+
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="full-width">
+            <input matInput formControlName="firstName" placeholder="First name" />
+            <mat-error *ngIf="registrationForm.get('firstName')?.hasError('required')">
+                First name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <input matInput formControlName="lastName" placeholder="Last name" />
+            <mat-error *ngIf="registrationForm.get('lastName')?.hasError('required')">
+                Last name is required
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <input matInput formControlName="email" placeholder="Enter your email" />
+            <mat-error *ngIf="registrationForm.get('email')?.hasError('required')">
+                Email is required
+            </mat-error>
+            <mat-error *ngIf="registrationForm.get('email')?.invalid">
+                Please enter a valid email
+            </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <input matInput formControlName="password" 
+            placeholder="Enter your password" 
+            type="password"
+            (input)="checkPasswordStrength()" />
+        </mat-form-field>
+
+        <div class="password-rules" *ngIf="password?.touched || password?.dirty">
+
+            <div>
+                <img [src]="passwordRules.hasMinLength ? 'assets/images/green-tick.png' : 'assets/images/cross-tick.png'"
+                    class="rule-icon" />
+                At least 8 characters
+            </div>
+
+            <div>
+                <img [src]="passwordRules.hasUpper ? 'assets/images/green-tick.png' : 'assets/images/cross-tick.png'"
+                    class="rule-icon" />
+                At least one uppercase letter
+            </div>
+
+              <div>
+                <img [src]="passwordRules.hasLower ? 'assets/images/green-tick.png' : 'assets/images/cross-tick.png'"
+                    class="rule-icon" />
+                At least one lowercase letter
+            </div>
+
+            <div>
+                <img [src]="passwordRules.hasNumber ? 'assets/images/green-tick.png' : 'assets/images/cross-tick.png'"
+                    class="rule-icon" />
+                At least one number
+            </div>
+        </div>
+
+        <mat-form-field appearance="fill" class="full-width">
+            <input matInput formControlName="confirmPassword" placeholder="Confirm password" type="password" />
+            <mat-error *ngIf="registrationForm.hasError('passwordMismatch')">
+                Passwords do not match
+            </mat-error>
+        </mat-form-field>
+
+        <button type="submit" class="full-width sign-up-btn" [disabled]="registrationForm.invalid">
+            Sign Up
+        </button>
+    </form>
+
+    <div class="divider">or</div>
+
+    <button mat-stroked-button color="accent" class="full-width google-btn" (click)="loginWithGoogle()">
+        <img src="assets/images/google-icon.svg" alt="Google" class="google-icon" />
+        Sign up with Google
+    </button>
+
+    <p class="login-link">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+    </p>
+</div>

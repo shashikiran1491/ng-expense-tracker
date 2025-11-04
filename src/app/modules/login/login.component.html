@@ -1,29 +1,35 @@
-<div class = "header-container">
-  <img src="assets/images/wallet-black-symbol.png" alt="Expense Tracker" class="expense-logo"/>
-  <div class = "title-container">
+<div class="header-container">
+  <img src="assets/images/wallet-black-symbol.png" alt="Expense Tracker" class="expense-logo" />
+  <div class="title-container">
     <div class="expense-title">Expense Tracker</div>
     <div class="expense-sub-title">Manage your income and expenses efficiently</div>
   </div>
 </div>
-  <div class="login-container">
+<div class="login-container">
   <h2>Welcome back</h2>
   <p>Sign in to your account to continue</p>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-   <mat-form-field appearance="fill" class="full-width">
-    <input type="string" matInput formControlName="email" placeholder="Email address"/>
-  </mat-form-field>
-
     <mat-form-field appearance="fill" class="full-width">
-      <input type="password" matInput formControlName="password" placeholder="Password"/>
+      <input type="string" matInput formControlName="email" placeholder="Email address" />
     </mat-form-field>
 
-    <button type="submit" [disabled]="!loginForm.valid">Sign In</button>
+    <mat-form-field appearance="fill" class="full-width">
+      <input type="password" matInput formControlName="password" placeholder="Password" />
+    </mat-form-field>
+
+    <button type="submit" class="full-width sign-in-btn" [disabled]="!loginForm.valid">Sign In</button>
   </form>
+
+  <div class="divider">or</div>
+
+  <div class="google-btn">
+    <span>Sign in with</span>
+    <asl-google-signin-button></asl-google-signin-button>
+  </div>
 
   <p class="signup-text">
     Don't have an account?
     <a routerLink="/signup">Sign up</a>
   </p>
 </div>
-

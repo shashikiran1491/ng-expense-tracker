@@ -53,7 +53,6 @@ export class RecentTransactionsComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log('The dialog was closed with result:', result);
       if (result) {
         this.loadRecentTransactions();
       }

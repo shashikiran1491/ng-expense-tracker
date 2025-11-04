@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DateUtils } from 'src/app/utils/date-utils';
 import { TransactionService } from 'src/app/service/transaction-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-show-transactions',
@@ -22,7 +23,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
     MatTableModule,
     MatIconModule,
     CommonModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule
   ]
 })
 export class ShowTransactionsComponent {

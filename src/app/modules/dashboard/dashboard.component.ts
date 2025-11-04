@@ -3,6 +3,8 @@ import { HeaderComponent } from "../header/header.component";
 import { FinanceOverviewComponent } from "../finance-overview/finance-overview.component";
 import { CategoryExpensesComponent } from "../category-expenses/category-expenses.component";
 import { RecentTransactionsComponent } from "../recent-transactions/recent-transactions.component";
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +12,9 @@ import { RecentTransactionsComponent } from "../recent-transactions/recent-trans
   standalone: true,
   styleUrls: ['./dashboard.component.scss'],
   imports: [FinanceOverviewComponent, CategoryExpensesComponent,
-    RecentTransactionsComponent, HeaderComponent]
+    RecentTransactionsComponent, HeaderComponent,
+    MatDialogModule,
+    MatSnackBarModule]
 })
 export class DashboardComponent {
 

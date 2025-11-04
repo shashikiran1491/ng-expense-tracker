@@ -13,6 +13,7 @@ import { TransactionRequest } from "src/app/model/transaction-request";
 import { TransactionService } from "src/app/service/transaction-service";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
 import { Router } from "@angular/router";
+import { TransactionEventService } from "src/app/service/transaction-event-service";
 
 @Component({
   selector: 'app-add-transaction',
@@ -38,7 +39,8 @@ export class AddTransactionComponent {
   constructor(private dialogRef: MatDialogRef<AddTransactionComponent>,
     private transactionService: TransactionService,
     private snackBar: MatSnackBar,
-    private router: Router) {
+    private router: Router,
+  private transactionEventService: TransactionEventService) {
   }
 
   saveTransaction() {
@@ -60,6 +62,7 @@ export class AddTransactionComponent {
             duration: 6000
           });
         }
+        this.transactionEventService.notifyTransactionAdded();
         this.dialogRef.close(true);
       },
       error: (err) => {

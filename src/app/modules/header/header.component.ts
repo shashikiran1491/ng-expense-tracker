@@ -32,7 +32,7 @@ export class HeaderComponent {
   logout() {
     this.authService.signOut().finally(() => {
       sessionStorage.removeItem('token');
-      this.monthYearService.resetToCurrentMonthYear();
+      //this.monthYearService.resetToCurrentMonthYear();
       this.router.navigate(['/login'], { replaceUrl: true });
     });
   }

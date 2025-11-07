@@ -1,41 +1,48 @@
-<div class="logo-title-container">
-  <img src="assets/images/wallet-black-symbol.png" alt="Expense Tracker" class="expense-logo" />
-  <div class="title-container">
-    <div class="expense-title">Expense Tracker</div>
-    <div class="expense-sub-title">Manage your income and expenses efficiently</div>
+<div class="header-container">
+
+  <!-- logo + title -->
+  <div class="logo-title-container">
+    <img src="assets/images/wallet-black-symbol.png" alt="Expense Tracker" class="expense-logo" />
+    <div class="title-container">
+      <div class="expense-title">Expense Tracker</div>
+      <div class="expense-sub-title">Manage your income and expenses efficiently</div>
+    </div>
   </div>
 
-  <div class="header-links-container">
+
+  <div class=nav-links-user-section>
+
+    <!-- nav links -->
     <nav class="nav-links">
       <a routerLink="/dashboard" routerLinkActive="active">Home</a>
       <a routerLink="/expenses" routerLinkActive="active">Expenses</a>
       <a routerLink="/settings" routerLinkActive="active">Settings</a>
     </nav>
 
-  </div>
-
-  <div class="user-section">
-    <button mat-button [matMenuTriggerFor]="userMenu" class="avatar-btn">
-      <div class="avatar">
-        {{ userInitial }}
-      </div>
-    </button>
-
-    <mat-menu #userMenu="matMenu">
-      <button mat-menu-item (click)="onProfile()">
-        <mat-icon>person</mat-icon>
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>logout</mat-icon>
-        <span>Logout</span>
+    <!-- user section -->
+    <div class="user-section">
+      <button mat-button [matMenuTriggerFor]="userMenu" class="avatar-btn">
+        <div class="avatar">
+          {{ userInitial }}
+        </div>
       </button>
 
-      <mat-divider></mat-divider>
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item (click)="onProfile()">
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+        </button>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
 
-      <div class="user-info">
-        <div class="user-name">{{ loggedInUser }}</div>
-      </div>
-    </mat-menu>
+        <mat-divider></mat-divider>
+
+        <div class="user-info">
+          <div class="user-name">{{ loggedInUser }}</div>
+        </div>
+      </mat-menu>
+    </div>
   </div>
 </div>

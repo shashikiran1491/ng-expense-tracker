@@ -115,9 +115,9 @@ export class CategoryExpensesComponent implements OnInit {
       options: {
         layout: {
           padding: {
-            left: 120,
-            right: 60,
-            bottom: 70
+            left: 80,
+            right: 80,
+            bottom: 80
           }
         },
         plugins: {

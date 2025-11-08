@@ -1,20 +1,17 @@
 .category-expenses-container {
-  border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 10px;
-  min-height: 500px;
-  margin-left: 2rem;
-  border: 1px solid black;
+  padding: 1rem;
+  width: 90%;
+  height: 90%;  
 }
 
 .category-expense-title {
-  font-size: 1rem;
-  padding-bottom: 30px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
   font-family: 'Roboto', sans-serif;
 }
 
 .no-transactions {
-  margin-top: 12rem;
   text-align: center;
   font-weight: 600;
   font-size: 1.5rem;

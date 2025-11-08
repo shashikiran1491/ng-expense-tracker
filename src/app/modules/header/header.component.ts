@@ -23,11 +23,16 @@ export class HeaderComponent {
   loggedInUser: string = 'shashikiran1490@gmail.com';
   userInitial: string = 'S';
   token: string = 'token';
+  mobileMenuOpen = false;
 
   constructor(private dialog: MatDialog, private router: Router,
     private monthYearService: MonthYearService,
     private authService: SocialAuthService
   ) { }
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
 
   logout() {
     this.authService.signOut().finally(() => {

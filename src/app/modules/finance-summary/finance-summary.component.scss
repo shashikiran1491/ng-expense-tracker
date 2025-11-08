@@ -1,49 +1,122 @@
 .cards-container {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  //border: 1px solid black;
+}
+
+.card {
+  flex: 1;
+  min-width: 200px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  /* 👈 adds grey border */
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* soft shadow */
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 6px;
+  justify-items: left;
+}
+
+.card-amount {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.income-amount {
+  color: #2e7d32;
+  /* green */
+}
+
+.expense-amount {
+  color: #c62828;
+  /* red */
+}
+
+.balance-amount {
+  color: #2e7d32;
+  /* blue */
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-width: 100px;
+  }
+
+  .card-title {
+    margin-bottom: 0.3rem;
+  }
+
+  .card-amount {
+    margin-top: 0.8rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .cards-container {
     display: flex;
-    padding: 1rem;
-    gap: 20px;
+    padding: 0.5rem;
+    gap: 0.5rem;
     border: 1px solid black;
   }
-  
+
   .card {
     flex: 1;
-    min-width: 200px;
-    background-color: #fff;
-    border: 1px solid #ccc; /* 👈 adds grey border */
-    border-radius: 12px;
-    padding: 16px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* soft shadow */
-    text-align: left;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-width: 75px;
   }
-  
-  .card-title-container {
-    display: flex;
-    justify-content: space-between;
-  }
-  
+
   .card-title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #444;
-    margin-bottom: 6px;
-    justify-items: left;
+    font-size: 0.7rem;
+    margin-bottom: 4px;
   }
-  
+
   .card-amount {
-    margin-top: 2rem;
-    font-size: 1.4rem;
+    margin-top: 0.8rem;
+    font-size: 1rem;
     font-weight: 400;
   }
-  
-  .income-amount {
-    color: #2e7d32; /* green */
+}
+
+@media (max-width: 475px) {
+.cards-container {
+  padding: 0.3rem;
+  gap: 0.3rem;
+}
+
+  .card {
+    flex: 1;
+    padding: 0.5rem;
+    min-width: 20px;
   }
-  
-  .expense-amount {
-    color: #c62828; /* red */
+
+  .card-title {
+    font-size: 0.6rem;
+    margin-bottom: 2px;
   }
-  
-  .balance-amount {
-    color: #2e7d32;/* blue */
+
+  .card-amount {
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    font-weight: 600;
   }
+
+}
+
+@media (max-width: 360px) {}
+
+@media (max-width: 325px) {}

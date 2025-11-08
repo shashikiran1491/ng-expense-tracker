@@ -17,14 +17,14 @@ import { DateUtils } from 'src/app/utils/date-utils';
 export class FinanceSummaryComponent {
 
   financeSummary: FinanceSummary | null = null;
-  month!:  number;
+  month!: number;
   year!: number;
   private sub!: Subscription;
 
   constructor(private transactionService: TransactionService,
     private monthYearService: MonthYearService,
-  private transactionEvents: TransactionEventService) {
-}
+    private transactionEvents: TransactionEventService) {
+  }
 
   ngOnInit(): void {
     this.sub = this.monthYearService.monthYear$.subscribe(({ month, year }) => {
@@ -39,8 +39,8 @@ export class FinanceSummaryComponent {
       const { start, end } = DateUtils.getMonthDateRange(this.month + 1, this.year);
       const { startDate, endDate } = DateUtils.formatDateToString(start, end);
       this.loadFinanceSummary(startDate, endDate);
-  });
-}
+    });
+  }
 
   ngOnDestroy() {
     this.sub.unsubscribe(); // important to prevent stacked subscriptions
@@ -48,7 +48,7 @@ export class FinanceSummaryComponent {
 
   loadFinanceSummary(startDate: string, endDate: string) {
     this.transactionService.loadFinanceSummary(startDate, endDate).subscribe({
-      next:(response) => {
+      next: (response) => {
         this.financeSummary = response;
       }
     });

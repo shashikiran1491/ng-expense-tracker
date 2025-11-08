@@ -1,35 +1,34 @@
 <div class="finance-overview-container">
 
-  <div class="finance-overview-header">
-    <div>
-      <div class="finance-overview-title">Financial Overview</div>
-      <div class="finance-overview-sub-title">Showing data for {{getMonthAndYear()}}</div>
-    </div>
-
-    <div class="show-transaction-container">
-
-      <button class="show-transaction-btn" (click)="showTransactions()">
-        Show All Transactions
-      </button>
-
-      <div class="month-year-container">
-        <mat-form-field appearance="fill">
-          <mat-select [(ngModel)]="selectedMonth" (ngModelChange)="onMonthYearChange()">
-            <mat-option *ngFor="let m of months" [value]="m.value">
-              {{ m.name }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field appearance="fill">
-          <mat-select [(ngModel)]="selectedYear" (ngModelChange)="onMonthYearChange()">
-            <mat-option *ngFor="let y of years" [value]="y">
-              {{ y }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-      </div>
-    </div>
+  <!-- Title and sub-title -->
+  <div class = "finance-title-subtitle-container">
+    <div class="finance-overview-title">Financial Overview</div>
+    <div class="finance-overview-sub-title">Showing data for {{getMonthAndYear()}}</div>
   </div>
-  <app-finance-summary></app-finance-summary>
+
+   <!-- Show Transaction button + month and year container-->
+  <div class="show-transaction-container">
+    <button class="show-transaction-btn" (click)="showTransactions()">
+      Show All Transactions
+    </button>
+
+
+    <div class="month-year-container">
+      <mat-form-field appearance="fill" class="month-select">
+        <mat-select [(ngModel)]="selectedMonth" (ngModelChange)="onMonthYearChange()">
+          <mat-option *ngFor="let m of months" [value]="m.value">
+            {{ m.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="year-select">
+        <mat-select [(ngModel)]="selectedYear" (ngModelChange)="onMonthYearChange()">
+          <mat-option *ngFor="let y of years" [value]="y">
+            {{ y }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div> 
 </div>

@@ -1,65 +1,35 @@
-.logo-title-container {
-  display: flex;
-  align-items: center;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #ccc;
+.mobile-nav {
+  display: none;
 }
 
-.header-links-container {
-  margin-left: auto;
-  margin-right: 20px;
-  margin-top: 40px;
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin: 1rem, auto;
+  padding: 0.8rem;
+  //border: 1px solid black;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
 }
 
 .title-container {
-  margin-top: 2rem;
-  margin-left: 1rem;
-}
-
-.nav-links {
   display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-  cursor: pointer;
-}
-
-.nav-links a:hover {
-  background-color: #f0f0f0; /* light grey hover background */
-}
-
-.nav-links a.active {
-  color: #1976d2; /* blue for active link */
-  font-weight: 600;
-}
-
-/* Optional: make logout stand out slightly */
-.logout {
-  color: #d32f2f;
-}
-.logout:hover {
-  background-color: #f8d7da; /* subtle red hover */
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .expense-title {
   font-size: 1.5rem;
-  margin-top: 0.5rem;
   font-family: 'Roboto', sans-serif;
 }
 
 .expense-sub-title {
   color: grey;
-  margin-top: 0.3rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -68,27 +38,35 @@
   height: 80px;
 }
 
-.add-transaction-btn {
+.nav-links-user-section {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #0f172a;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: 'Roboto', sans-serif;
+  align-items: flex-end;
+  gap: 4rem;
 }
 
-.add-transaction-container {
-  margin-left: auto;
-  margin-right: 1rem;
-  margin-top: 5rem;
-  padding-right: 10px;
+.nav-links {
+  display: flex;
+  gap: 3rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+}
+
+.nav-links a:hover {
+  background-color: #f0f0f0;
+  /* light grey hover background */
+}
+
+.nav-links a.active {
+  color: #1976d2;
+  /* blue for active link */
+  font-weight: 600;
 }
 
 .user-section {
@@ -98,12 +76,11 @@
 
 /* Remove button background and borders */
 .avatar-btn {
-  margin-top: 2rem;
-  display: flex;
   background: none !important;
   border: none !important;
   box-shadow: none !important;
   padding: 0;
+  cursor: pointer;
 }
 
 /* Remove grey hover effect */
@@ -114,8 +91,8 @@
 
 /* Avatar itself */
 .avatar {
-  width: 38px;
-  height: 38px;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background-color: #1976d2;
   color: #fff;
@@ -134,3 +111,189 @@
   font-weight: 400;
   font-size: 1rem;
 }
+
+.nav-links-user-section-bars {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .logo-title-container {
+    gap: 0.5rem;
+  }
+
+  .title-container {
+    gap: 0.1rem;
+    line-height: 1;
+  }
+
+  .expense-title {
+    font-size: 1rem;
+  }
+
+  .expense-sub-title {
+    font-size: 0.6rem;
+  }
+
+  .expense-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .nav-links-user-section {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 0.5rem;
+  }
+
+  .nav-links a {
+    padding-bottom: 0rem;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .logo-title-container {
+    gap: 0.4rem;
+  }
+
+  .title-container {
+    gap: 0.1rem;
+    line-height: 1;
+  }
+
+  .expense-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .expense-sub-title {
+    font-size: 0.6rem;
+  }
+
+  .expense-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-links-user-section {
+    gap: 1rem;
+  }
+
+  .nav-links {
+    gap: 0.25rem;
+  }
+
+  .nav-links a {
+    padding-bottom: 0rem;
+  }
+
+}
+
+@media (min-width: 426px) and (max-width: 767px) {
+  .nav-links {
+    gap: 0.3rem;
+  }
+
+  .nav-links-user-section {
+    gap: 0.2rem;
+  }
+
+  .expense-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+
+  .expense-sub-title {
+    font-size: 0.6rem;
+
+  }
+
+}
+
+@media (max-width: 475px) {
+
+  .expense-title {
+    font-size: 0.8rem;
+  }
+
+  .expense-sub-title {
+    font-size: 0.5rem;
+    color: grey;
+  }
+
+  .mobile-nav {
+    //display: none;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    top: 80px;
+    right: 20px;
+    height: fit-content;
+    background-color: #fff;
+    z-index: 2000;
+    transform: translateX(100%);
+    /* hidden off-screen by default */
+    transition: transform 0.3s ease-in-out;
+
+  }
+
+  .mobile-nav.open {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav-link {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 10px 0;
+    display: block;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-nav-link:hover {
+    background-color: #f4f4f4;
+  }
+
+  .mobile-nav-button {
+    background: none;
+    border: none;
+    text-decoration: none;
+    color: #333333;
+    font-size: 14px;
+    padding: 10px 0;
+    font-family: Roboto, sans-serif;
+    font-weight: 600;
+  }
+
+  .nav-links-user-section {
+    display: none !important;
+
+  }
+
+  .nav-links-user-section-bars {
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, 0.3s;
+  }
+
+}
+
+@media (max-width: 375px) {}
+
+@media (max-width: 320px) {}

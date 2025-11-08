@@ -1,11 +1,12 @@
 <div class="recent-transactions-container">
-  <div class = "recent-transactions-header-container">
-  <span class="recent-transactions-title">Recent Transactions</span>
-    <button class = "add-transaction-btn" (click)="onAddTransaction()">
+
+  <div class="recent-transactions-header-container">
+    <span class="recent-transactions-title">Recent Transactions</span>
+    <button class="add-transaction-btn" (click)="onAddTransaction()">
       <span class="plus-icon">+</span>
-       Add Transaction
+      Add Transaction
     </button>
-</div>
+  </div>
 
   <ng-container *ngIf="recentTransactions && recentTransactions.length > 0; else noTxns">
     <div class="cards-container" *ngFor="let txn of recentTransactions">
@@ -33,6 +34,3 @@
   </ng-template>
 
 </div>
-
-
-

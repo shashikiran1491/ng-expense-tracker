@@ -12,11 +12,11 @@ export class AuthService {
   }
 
   login(loginRequest: any): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/login', loginRequest);
+    return this.httpClient.post('https://expense-tracker-lw8h.onrender.com/api/expense-tracker/v1/auth/login', loginRequest);
   }
 
   register(registerRequest: any): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/register', registerRequest);
+    return this.httpClient.post('https://expense-tracker-lw8h.onrender.com/api/expense-tracker/v1/auth/register', registerRequest);
   }
 
   getToken(): string | null {
@@ -28,6 +28,6 @@ export class AuthService {
   }
 
   googleLogin(idToken: string): Observable<any> {
-    return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/login/google', { idToken });
+    return this.httpClient.post('https://expense-tracker-lw8h.onrender.com/api/expense-tracker/v1/auth/login/google', { idToken });
   } 
 }

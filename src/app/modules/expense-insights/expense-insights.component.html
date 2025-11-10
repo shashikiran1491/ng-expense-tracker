@@ -1,0 +1,23 @@
+<div class="expense-insights-container">
+    <h3> Spending Insights</h3>
+
+    <div class="insight-card daily-spending">
+        <span>Average Daily Spending</span>
+        <span>Rs. {{ expenseInsights?.averageDailySpending | number:'1.0-0' }}</span>
+    </div>
+
+    <div class="insight-card monthly-total">
+    <span>Projected Monthly Total</span>
+    <span>Rs. {{ expenseInsights?.projectedMonthlyTotal| number:'1.0-0' }}</span>
+  </div>
+
+  <div class="insight-card days-remaining">
+    <span>Days Remaining</span>
+    <span>{{ expenseInsights?.noOfDaysRemaining }} days</span>
+  </div>
+
+  <div class="insight-card highest-category">
+    <span>Highest Category</span>
+    <span>{{ expenseInsights?.highestCategory?.category }} (Rs. {{ expenseInsights?.highestCategory?.amount| number:'1.0-0' }})</span>
+  </div>
+</div>

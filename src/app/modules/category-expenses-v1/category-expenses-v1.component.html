@@ -1,0 +1,17 @@
+<div class="category-card">
+    <h3>Expense by Category</h3>
+
+    <div class="category-list">
+        <div *ngFor="let item of categoryExpenses" class="category-row">
+            <div class="category-info">
+                <span class="name">{{ item.category }}</span>
+                <span class="amount">Rs. {{ item.totalAmount }}</span>
+                <span class="percent">{{ item.percentage | number:'1.1-1' }}%</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" [style.width.%]="item.percentage" [style.background-color]="'#d946ef'"></div>
+            </div>
+        </div>
+    </div>
+</div>

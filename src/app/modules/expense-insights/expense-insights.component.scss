@@ -1,0 +1,51 @@
+.expense-insights-container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem 1rem 1.2rem 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    width: 90%;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    //margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    color: #222;
+}
+
+.insight-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 400;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* soft shadow */
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.daily-spending {
+    background-color: #ddf4f4;
+}
+
+.monthly-total {
+    background-color: #f0f0e9;
+}
+
+.days-remaining {
+    background-color: #f7f3f5;
+}
+
+.highest-category {
+    background-color: #f9fbf8;
+}

@@ -40,7 +40,7 @@ export class AddTransactionComponent {
     private transactionService: TransactionService,
     private snackBar: MatSnackBar,
     private router: Router,
-  private transactionEventService: TransactionEventService) {
+    private transactionEventService: TransactionEventService) {
   }
 
   saveTransaction() {
@@ -71,7 +71,6 @@ export class AddTransactionComponent {
         });
       }
     });
-
   }
 
   onCancel() {

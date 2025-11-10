@@ -44,4 +44,12 @@ export class TransactionService {
       return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/transactions/summary/category', { params });
   }
 
+    loadExpenseInsights(month: number, year: number): Observable<any> {
+    const params = new HttpParams()
+      .set('month', month)
+      .set('year', year);
+
+      return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/insights', { params });
+  }
+
 }

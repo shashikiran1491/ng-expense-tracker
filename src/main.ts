@@ -14,7 +14,6 @@ import { apiInterceptor } from './app/interceptors/api.interceptor';
 import { errorInterceptor } from './app/interceptors/error.handler.interceptor';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
-
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),

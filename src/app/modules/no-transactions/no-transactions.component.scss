@@ -1,0 +1,45 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 400px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    margin: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    gap: 0.5rem;
+
+}
+
+.no-transactions-logo {
+    width: 8rem;
+    height: 8rem;
+}
+
+.no-transactions-title {
+    font-family: 'Roboto', sans-serif;
+}
+
+.no-transactions-sub-title {
+    color: grey;
+    font-family: 'Roboto', sans-serif;
+}
+
+.add-transaction-btn {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}

@@ -5,6 +5,7 @@ import { MonthYearService } from 'src/app/service/month-year-service';
 import { DateUtils } from 'src/app/utils/date-utils';
 import { TransactionService } from 'src/app/service/transaction-service';
 import { CategoryExpense } from 'src/app/model/category-expense';
+import { TransactionEventService } from 'src/app/service/transaction-event-service';
 
 @Component({
   selector: 'app-category-expenses-v1',
@@ -16,7 +17,8 @@ import { CategoryExpense } from 'src/app/model/category-expense';
 export class CategoryExpensesV1Component implements OnInit {
 
   constructor(private monthYearService: MonthYearService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    private transactionEvents: TransactionEventService
   ) { }
 
   private sub!: Subscription;
@@ -35,6 +37,11 @@ export class CategoryExpensesV1Component implements OnInit {
       this.startDate = startDate;
       this.endDate = endDate;
       this.loadCategoryWiseExpenses();
+
+     this.transactionEvents.transactionAdded$.subscribe(() => {
+      this.loadCategoryWiseExpenses();
+    });  
+
     });
   }
 

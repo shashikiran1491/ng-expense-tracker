@@ -4,6 +4,7 @@ import { ExpenseInsights } from 'src/app/model/expense-insights';
 import { Subscription } from 'rxjs';
 import { MonthYearService } from 'src/app/service/month-year-service';
 import { TransactionService } from 'src/app/service/transaction-service';
+import { TransactionEventService } from 'src/app/service/transaction-event-service';
 
 @Component({
   selector: 'app-expense-insights',
@@ -21,7 +22,8 @@ export class ExpenseInsightsComponent implements OnInit {
   year !: number;
 
   constructor(private monthYearService: MonthYearService,
-    private transactionService: TransactionService
+    private transactionService: TransactionService,
+    private transactionEvents: TransactionEventService
   ) { }
 
   ngOnInit() {
@@ -30,6 +32,11 @@ export class ExpenseInsightsComponent implements OnInit {
       this.year = year;
       this.loadExpenseInsights();
     });
+
+     this.transactionEvents.transactionAdded$.subscribe(() => {
+      this.loadExpenseInsights();
+    });  
+
   }
 
   loadExpenseInsights() {

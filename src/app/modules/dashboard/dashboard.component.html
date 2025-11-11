@@ -3,18 +3,19 @@
   <app-finance-overview></app-finance-overview>
   <app-finance-summary></app-finance-summary>
 
- <div class="bottom-section">
-    <div class = "category-and-insights-container">
-    <app-category-expenses-v1></app-category-expenses-v1>
-    <app-expense-insights></app-expense-insights>
-    </div>
-    <app-recent-transactions></app-recent-transactions> 
- </div> 
 
-<!--
-  <div>
+  <ng-container *ngIf="!loadNoTransactionsPage; else noTransactionsPage">
+    <div class="bottom-section">
+      <div class="category-and-insights-container">
+        <app-category-expenses-v1></app-category-expenses-v1>
+        <app-expense-insights></app-expense-insights>
+      </div>
+      <app-recent-transactions></app-recent-transactions>
+    </div>
+  </ng-container>
+
+  <ng-template #noTransactionsPage>
     <app-no-transactions></app-no-transactions>
-  </div> 
--->
+  </ng-template>
 
 </div>

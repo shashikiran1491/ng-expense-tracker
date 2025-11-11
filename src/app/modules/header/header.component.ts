@@ -6,6 +6,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -37,7 +38,6 @@ export class HeaderComponent {
   logout() {
     this.authService.signOut().finally(() => {
       sessionStorage.removeItem('token');
-      //this.monthYearService.resetToCurrentMonthYear();
       this.router.navigate(['/login'], { replaceUrl: true });
     });
   }

@@ -15,7 +15,7 @@ export class TransactionService {
     return this.httpClient.post('https://expense-tracker-lw8h.onrender.com/api/expense-tracker/v1/expenses', transactionRequest);
   }
 
-  loadTransactions(startDate: string, endDate: string, category: string, type: string, pageIndex: number, pageSize: number): Observable<any> {
+loadTransactions(startDate: string, endDate: string, category: string, type: string, pageIndex: number, pageSize: number): Observable<any> {
 
     const params = new HttpParams()
       .set('startDate', startDate)

@@ -56,8 +56,8 @@ export class RecentTransactionsComponent {
       if (result) {
         this.loadRecentTransactions();
       }
-    }); 
-}
+    });
+  }
 
   onDelete(txn: any) {
     console.log("deleting trnsaction", txn);

@@ -62,11 +62,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
      this.transactionEvents.transactionAdded$.subscribe(() => {
       this.loadTransactions();
     });  
+  }
 
-
-}
-
-ngOnDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 

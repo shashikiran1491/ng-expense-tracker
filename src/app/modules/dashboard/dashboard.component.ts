@@ -13,6 +13,8 @@ import { MonthYearService } from 'src/app/service/month-year-service';
 import { Subscription } from 'rxjs';
 import { DateUtils } from 'src/app/utils/date-utils';
 import { CommonModule } from '@angular/common';
+import { TransactionEventService } from 'src/app/service/transaction-event-service';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,7 +30,8 @@ import { CommonModule } from '@angular/common';
     HeaderComponent,
     MatDialogModule,
     ExpenseInsightsComponent,
-    CommonModule]
+    CommonModule,
+    MatNativeDateModule]
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
@@ -41,7 +44,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   constructor(private transactionService: TransactionService,
     private snackBar: MatSnackBar,
-    private monthYearService: MonthYearService
+    private monthYearService: MonthYearService,
+    private transactionEvents: TransactionEventService
   ) { }
 
   ngOnInit(): void {
@@ -54,9 +58,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.endDate = endDate;
       this.loadTransactions();
     });
-}
 
-ngOnDestroy() {
+     this.transactionEvents.transactionAdded$.subscribe(() => {
+      this.loadTransactions();
+    });  
+  }
+
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 

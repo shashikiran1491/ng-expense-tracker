@@ -51,5 +51,4 @@ loadTransactions(startDate: string, endDate: string, category: string, type: str
 
       return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/insights', { params });
   }
-
 }

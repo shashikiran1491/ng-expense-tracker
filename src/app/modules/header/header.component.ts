@@ -7,6 +7,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { SocialAuthService } from '@abacritt/angularx-social-login';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/service/auth-service';
+import { UserDetails } from 'src/app/model/user-details';
 
 @Component({
   selector: 'app-header',
@@ -21,15 +23,19 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent {
 
-  loggedInUser: string = 'shashikiran1490@gmail.com';
-  userInitial: string = 'S';
+  user: UserDetails | null = null;
+  userInitial?: string;
   token: string = 'token';
   mobileMenuOpen = false;
 
   constructor(private dialog: MatDialog, private router: Router,
-    private monthYearService: MonthYearService,
-    private authService: SocialAuthService
+    private authService: SocialAuthService,
+    private authInternalService: AuthService
   ) { }
+
+  ngOnInit() {
+    this.getCurrentUser();
+  }
 
   toggleMobileMenu() {
     this.mobileMenuOpen = !this.mobileMenuOpen;
@@ -43,6 +49,18 @@ export class HeaderComponent {
   }
 
   onProfile() {
-    throw new Error('Method not implemented.');
+    this.router.navigate(['/profile']);
+  }
+
+  getCurrentUser() {
+    this.authInternalService.getCurrentUser().subscribe({
+      next: (response: UserDetails) => {
+        if (response) {
+          this.user = response;
+          this.userInitial = this.user.firstName.charAt(0).toUpperCase();
+        }
+      },
+      error: err => console.error('Error loading user data:', err)
+    });
   }
 }

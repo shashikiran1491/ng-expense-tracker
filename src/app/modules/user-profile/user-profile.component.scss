@@ -1,0 +1,214 @@
+.user-profile-container {
+  margin: 1rem;
+  background: #f8f9fa;
+}
+
+.header-container{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.page-title {
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+.subtitle {
+  color: grey;
+  font-family: 'Roboto', sans-serif;
+}
+
+.content {
+  display: flex;
+  gap: 24px;
+}
+
+.left-panel {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  margin-top: 1rem;
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  background: #4f7df3;
+  color: white;
+  font-size: 36px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.row {
+  grid-column: span 2;
+  display: flex;
+  gap: 16px;               /* spacing between fields */
+  width: 100%;
+}
+
+.form-field {
+  flex: 1;                 /* take equal space */
+  display: flex;
+  flex-direction: column;
+}
+
+
+.form-field input {
+  width: 100%;             /* prevents shrinking/overlap */
+  box-sizing: border-box;  /* ensure padding doesn’t increase width */
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+} 
+
+.form-field.full {
+  grid-column: span 2;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #555;
+}
+
+input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.right-panel {
+  flex: 1.2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.summary-label {
+  font-size: 14px;
+  color: #777;
+  margin-top: 12px;
+}
+
+.net-balance {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2e8b57;
+}
+
+.summary-value {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+
+.outline-btn,
+.danger-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.outline-btn {
+  border: 1px solid #ccc;
+  background: transparent;
+}
+
+.danger-btn {
+  border: 1px solid #ff6b6b;
+  color: #ff4444;
+  background: transparent;
+}
+
+.card.danger {
+  border: 1px solid #ffb3b3;
+  background: #fff5f5;
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 46px;
+  height: 24px;
+}
+
+.switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #ccc;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+input:checked + .slider {
+  background: #111;
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.toggle-title {
+  font-weight: 600;
+}
+
+.toggle-sub {
+  font-size: 13px;
+  color: #666;
+}

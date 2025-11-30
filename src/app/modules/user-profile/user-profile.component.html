@@ -1,0 +1,131 @@
+<app-header></app-header>
+
+<div class="user-profile-container">
+
+  <!-- Page Heading -->
+  <div class="header-container"> 
+    <div class="page-title">Profile Settings</div>
+    <p class="subtitle">Manage your account information and preferences</p>
+  </div>
+
+
+  <div class="content">
+
+    <!-- LEFT SIDE -->
+    <div class="left-panel">
+
+      <!-- PERSONAL INFORMATION -->
+      <div class="card">
+        <h3>Personal Information</h3>
+
+        <div class="profile-header">
+          <div class="avatar">{{ user?.firstName?.charAt(0) }}</div>
+        </div>
+
+        <div class="form-grid">
+
+          <div class = "row">
+          <div class="form-field">
+            <label>First Name</label>
+            <input type="text" [value]="user?.firstName" readonly />
+          </div>
+
+          <div class="form-field">
+            <label>Last Name</label>
+            <input type="text" [value]="user?.lastName" readonly />
+          </div>
+          </div>
+
+          <div class="form-field full">
+            <label>Email Address</label>
+            <input type="text" [value]="user?.email" readonly />
+          </div>
+
+          <div class="form-field full">
+            <label>Member Since</label>
+            <input type="text" value="January 2024" readonly />
+          </div>
+        </div>
+      </div>
+
+       <div class="card">
+        <h3>Notification Preferences</h3>
+
+        <div class="toggle-row">
+          <div>
+            <p class="toggle-title">Email Notifications</p>
+            <p class="toggle-sub">Receive expense updates via email</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <p class="toggle-title">Push Notifications</p>
+            <p class="toggle-sub">Receive important alerts</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="toggle-row">
+          <div>
+            <p class="toggle-title">Weekly Summary</p>
+            <p class="toggle-sub">Get weekly expense reports</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      </div>
+
+
+    </div>
+
+     <div class="right-panel">
+
+      
+      <!-- ACCOUNT SUMMARY 
+      <div class="card">
+        <h3>Account Summary</h3>
+
+        <p class="summary-label">Net Balance</p>
+        <p class="net-balance">Rs. 2720.83</p>
+
+        <p class="summary-label">Total Expenses</p>
+        <p class="summary-value">Rs. 15,280.00</p>
+
+        <p class="summary-label">This Month</p>
+        <p class="summary-value">Rs. 4,320.00</p>
+      </div>
+      -->
+
+       <div class="card">
+        <h3>Security</h3>
+
+        <button class="outline-btn">Change Password</button>
+        <button class="outline-btn">Two-Factor Authentication</button>
+      </div>
+
+      <!-- DANGER ZONE -->
+      <div class="card danger">
+        <h3>Danger Zone</h3>
+
+        <button class="danger-btn">Logout</button>
+        <button class="danger-btn">Delete Account</button>
+      </div>
+ 
+
+
+
+    </div>
+</div>
+
+</div>

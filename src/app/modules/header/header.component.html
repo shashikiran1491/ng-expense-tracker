@@ -16,7 +16,7 @@
     <nav class="nav-links">
       <a id="home" routerLink="/dashboard" routerLinkActive="active">Home</a>
       <a id="expenses" routerLink="/expenses" routerLinkActive="active">Expenses</a>
-      <a id="settings" routerLink="/settings" routerLinkActive="active">Settings</a>
+      <a id="trends" routerLink="/trends" routerLinkActive="active">Trends</a>
     </nav>
 
     <!-- user section -->
@@ -40,7 +40,7 @@
         <mat-divider></mat-divider>
 
         <div class="user-info">
-          <div class="user-name">{{ loggedInUser }}</div>
+          <div class="user-name">{{ user?.email }}</div>
         </div>
       </mat-menu>
     </div>

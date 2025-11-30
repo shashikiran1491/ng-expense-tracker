@@ -30,4 +30,8 @@ export class AuthService {
   googleLogin(idToken: string): Observable<any> {
     return this.httpClient.post('http://localhost:8080/api/expense-tracker/v1/auth/login/google', { idToken });
   } 
+
+  getCurrentUser(): Observable<any> {
+    return this.httpClient.get('http://localhost:8080/api/expense-tracker/v1/auth/me');
+  }
 }
